@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Dijkstra": {
+      "commandName": "Project",
+      "commandLineArgs": "1 2 NY.gr"
+    },
+    "Tests": {
+      "commandName": "Project",
+      "commandLineArgs": "NY.gr"
+    }
+  }
+}
