@@ -91,9 +91,7 @@ namespace Dijkstra
                                 select Vertex.Create(line)).ToList();
 
             var vertices = (from vertex in fileVertices
-                            group vertex by vertex.Source into grp
-                            orderby grp.Key
-                            select new GraphVertex<long>(grp.Key))?.ToList()
+                            select new[] { new GraphVertex<long>(vertex.Source), new GraphVertex<long>(vertex.Target) })?.SelectMany(i => i).Distinct().ToList()
                              ?? throw new Exception("The file don't contains a DIMACS content.");
 
             var connections = (from vertex in vertices
@@ -127,10 +125,13 @@ namespace Dijkstra
                         Console.WriteLine("Vertex count of the shortest path: {0}", dijkstra.Count);
                         Console.WriteLine("Sum distance of the shortest path: {0}", dijkstra.Sum(i => i.Distance));
                     }
+                    else
+                    {
+                        Console.WriteLine("inf");
+                    }
                 }
                 catch { }
 
-                Console.WriteLine("inf");
             }
             catch (Exception ex)
             {

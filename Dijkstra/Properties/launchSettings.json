@@ -2,7 +2,7 @@
   "profiles": {
     "Dijkstra": {
       "commandName": "Project",
-      "commandLineArgs": "1 2 NY.gr"
+      "commandLineArgs": "1 2 simple.gr"
     },
     "Tests": {
       "commandName": "Project",
